@@ -1,2 +1,4 @@
 # nefus-gamepro
-NEFUS Game Project Repository 
+어제 나는 터졌습니다. 분명히 저는 멀쩡히 노트북을 닫고 하교를 하고 학원을 끝내고 집으로 왔습니다. <br/>
+어느새 노트북이 껐다 켜졌습니다. 처음부터 다시 합니다. <del> ㅅㅂ </del> <br/>
+
