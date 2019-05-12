@@ -125,6 +125,7 @@ void selectGrade() {
 void printEasyMap() {
     int random = 0;
     int previousValue = 0;
+    int realPrevious = 0;
     for (int x = 0; x < 10; x++) {
         for (int y = 0; y < 10; y++) {
             random = easyMap[x][y];
@@ -135,7 +136,7 @@ void printEasyMap() {
             //}
 
             if (x == move_y && y == move_x) {
-                previousValue = easyMap[x][y];
+                //previousValue = easyMap[x][y];
                 easyMap[x][y] = 3;
                 //break;
             }
@@ -152,6 +153,7 @@ void printEasyMap() {
                     break;
                 case 3:
                     printf(" @");
+                    easyMap[move_y][move_x] = 1;
                     break;
             
             
@@ -160,7 +162,6 @@ void printEasyMap() {
                 printf("NewScore!!!");
                 break;
             }
-            
             } 
         }   printf("\n");
     }
