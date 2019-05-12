@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+//#include <conio.h>
+
+void printMove() {
+    char keyValue = ' ';
+    while (1) {
+        while(1) {
+            keyValue = getc();
+            switch(keyValue) {
+                case 'w':                //75 is go up
+                    printf("UP\n");
+                    break;
+                case 's':                //80 is go down
+                    printf("DOWN\n");
+                    break;
+                case 'a':                //72 is go left
+                    printf("LEFT\n");
+                    break;
+                case 'd':                //77 is go right
+                    printf("RIGHT\n");
+                    break;
+            }
+        }
+    }
+}
+
+int main() {
+    printMove();
+    return 0;
+}
