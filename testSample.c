@@ -15,7 +15,7 @@ int changeMap[100][100] = { '\n' };
 //Easy Play Mode Map
 int easyMap[10][10] = {
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 1, 1, 1, 0, 1, 1, 1, 0, 0},
+    {0, 2, 1, 1, 0, 1, 1, 1, 0, 0},
     {0, 0, 0, 1, 0, 1, 0, 1, 0, 0},
     {0, 0, 0, 1, 0, 1, 0, 1, 0, 0},
     {0, 0, 1, 1, 0, 1, 0, 1, 0, 0},
@@ -29,9 +29,9 @@ int easyMap[10][10] = {
 //SoSo Play Mode Map
 int normalMap[20][20] = {
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 2, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
@@ -50,39 +50,6 @@ int normalMap[20][20] = {
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 };
 
-int hardMap[30][30] = {
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 3, 2, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-};
-
 void intro();
 void selectGrade();
 void escapeGame();
@@ -93,15 +60,9 @@ void printHowto();
 void printUpdate();
 void printCleaning();
 
-void printEasyMap();
-void printNormalMap();
-void printHardMap();
-
 void mainEasyplay();
 void mainNormalplay();
-void mainHardplay();
-
-void ending();
+void mainNoNoplay();
 
 int main() {
     intro();
@@ -157,7 +118,8 @@ void selectGrade() {
             mainNormalplay();
             break;
         case 3:
-            mainHardplay();
+            //printf("성공 3 단계\n");
+            //mainNoNoplay();
             break;
     }
 }
@@ -165,24 +127,27 @@ void selectGrade() {
 //This fn is only print Easy Map
 void printEasyMap() {
     int random = 0;
-    int previousValue = 0;
+    int previous_x = 0;
+    int previous_y = 0;
 
     for (int x = 0; x < 10; x++) {
         for (int y = 0; y < 10; y++) {
             random = easyMap[x][y];
-            previousValue = easyMap[x][y];
+            
+            //if (easyMap[x][y] == easyMap[move_y][move_x]) {
+            //    printf("YOU CAN'T MOVE THERE!!!\n");
+            //    continue;
+            //}
 
             if (easyMap[move_y][move_x] == 0) {
                 printf("You crash to the wall X(\nTry Again...\n\n\n");
                 exit(1);
             }
 
-            if (easyMap[move_x][move_y] == 2) {
-                ending();
-            }
-
             if (x == move_y && y == move_x) {
+                //previousValue = easyMap[x][y];
                 easyMap[x][y] = 3;
+                //break;
             }
 
             switch(random) {
@@ -199,6 +164,15 @@ void printEasyMap() {
                     printf(" @");
                     easyMap[move_y][move_x] = 1;
                     break;
+            
+            
+            //if (easyMap[move_y][move_x] == easyMap[8][8]) {
+            if (move_y == 7 && move_x == 7) {
+                score = 1;
+                printf("NewScore!!!");
+                break;
+            }
+
             } 
         }   printf("\n");
     }
@@ -208,7 +182,7 @@ void printEasyMap() {
 void printNormalMap() {
     int random = 0; 
     int previousValue = 0;
-
+    
     for (int x = 0; x < 20; x++) {
         for (int y = 0; y < 20; y++) {
             random = normalMap[x][y];
@@ -217,13 +191,11 @@ void printNormalMap() {
                 printf("You crash to the wall X(\nTry Again...\n\n\n");
                 exit(1);
             }
-            
-            if (normalMap[move_x][move_y] == 2) {
-                ending();
-            }
 
             if (x == move_y && y == move_x) {
+                previousValue = normalMap[x][y];
                 normalMap[x][y] = 3;
+                //break;
             }
 
             switch(random) {
@@ -239,40 +211,6 @@ void printNormalMap() {
                 case 3:
                     printf(" @");
                     normalMap[move_y][move_x] = 1;
-                    break;
-            }
-        }   printf("\n");
-    }
-}
-
-void printHardMap() {
-    int random = 0; 
-    for (int x = 0; x < 30; x++) {
-        for (int y = 0; y < 30; y++) {
-            random = hardMap[x][y];
-
-            if (easyMap[move_y][move_x] == 0) {
-                printf("You crash to the wall X(\nTry Again...\n\n\n");
-                exit(1);
-            }
-
-            if (x == move_y && y == move_x) {
-                normalMap[x][y] = 3;
-            }
-
-            switch(random) {
-                case 0: 
-                    printf(" *");
-                    break;
-                case 1:
-                    printf("  ");
-                    break;
-                case 2:
-                    printf(" $");
-                    break;
-                case 3:
-                    printf(" @");
-                    hardMap[move_y][move_x] = 1;
                     break;
             }
         }   printf("\n");
@@ -305,14 +243,6 @@ void mainNormalplay() {
         printCleaning();
         printNormalMap();
         printMove();     
-    }
-}
-
-void mainHardplay() {
-    while(1 != score) {
-        printCleaning();
-        printHardMap();
-        printMove();
     }
 }
 
@@ -360,26 +290,4 @@ void printHowto() {
 
 void escapeGame() {
     exit(1);
-}
-
-void ending() {
-    score = 1;
-    printCleaning();
-    
-    printf("\t\t\t!GAME!OVER!\n");
-    printf("\t\tYou got %d score!!\n", score);
-    
-    printf("Continue?\nYes(1), No(2)\n >>>> ");
-    scanf("%d", &choose);
-
-    switch(choose) {
-        case 1:
-            intro();
-            exit(1);
-        case 2:
-            printf("Goodbye :)");
-            exit(1);
-        default:
-            break;
-    }
 }
