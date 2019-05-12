@@ -29,7 +29,7 @@ int easyMap[10][10] = {
 //SoSo Play Mode Map
 int normalMap[20][20] = {
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 2, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+    {0, 2, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
@@ -52,6 +52,7 @@ int normalMap[20][20] = {
 
 void intro();
 void selectGrade();
+void escapeGame();
 
 void printMap();
 void printMove();
@@ -70,6 +71,7 @@ int main() {
 
 //Intro Select Options
 void intro() {
+    while (1) {
     printf("AWESOME_MIRO\n");
 
     printf("1.Play Game.\n");
@@ -80,15 +82,16 @@ void intro() {
     scanf("%d", &choose);
     
     switch (choose) {
-        case 1:
-            selectGrade();
-            break;
-        case 2:
-            //printHowto();
-            break;
-        case 3:
-            //exitGame();
-            break;
+            case 1:
+                selectGrade();
+                break;
+            case 2:
+                printHowto();
+                break;
+            case 3:
+                escapeGame();
+                break;
+        }
     }
     //return 0;
 }
@@ -107,15 +110,15 @@ void selectGrade() {
 
     switch(choose) {
         case 1:
-            printf("성공 1 단계\n");
+            //printf("성공 1 단계\n");
             mainEasyplay();
             break;
         case 2:
-            printf("성공 2 단계\n");
+            //printf("성공 2 단계\n");
             mainNormalplay();
             break;
         case 3:
-            printf("성공 3 단계\n");
+            //printf("성공 3 단계\n");
             //mainNoNoplay();
             break;
     }
@@ -124,16 +127,22 @@ void selectGrade() {
 //This fn is only print Easy Map
 void printEasyMap() {
     int random = 0;
-    int previousValue = 0;
-    int realPrevious = 0;
+    int previous_x = 0;
+    int previous_y = 0;
+
     for (int x = 0; x < 10; x++) {
         for (int y = 0; y < 10; y++) {
             random = easyMap[x][y];
-
+            
             //if (easyMap[x][y] == easyMap[move_y][move_x]) {
             //    printf("YOU CAN'T MOVE THERE!!!\n");
             //    continue;
             //}
+
+            if (easyMap[move_y][move_x] == 0) {
+                printf("You crash to the wall X(\nTry Again...\n\n\n");
+                exit(1);
+            }
 
             if (x == move_y && y == move_x) {
                 //previousValue = easyMap[x][y];
@@ -157,11 +166,13 @@ void printEasyMap() {
                     break;
             
             
-            if (easyMap[x][y] == easyMap[8][8]) {
+            //if (easyMap[move_y][move_x] == easyMap[8][8]) {
+            if (move_y == 7 && move_x == 7) {
                 score = 1;
                 printf("NewScore!!!");
                 break;
             }
+
             } 
         }   printf("\n");
     }
@@ -174,6 +185,11 @@ void printNormalMap() {
     for (int x = 0; x < 20; x++) {
         for (int y = 0; y < 20; y++) {
             random = normalMap[x][y];
+
+            if (easyMap[move_y][move_x] == 0) {
+                printf("You crash to the wall X(\nTry Again...\n\n\n");
+                exit(1);
+            }
 
             if (x == move_y && y == move_x) {
                 previousValue = normalMap[x][y];
@@ -193,6 +209,7 @@ void printNormalMap() {
                     break;
                 case 3:
                     printf(" @");
+                    normalMap[move_y][move_x] = 1;
                     break;
             }
         }   printf("\n");
@@ -209,15 +226,14 @@ void printCleaning() {
 }
 
 void mainEasyplay() {
-    char quitKey = ' ';
-    while (0 == score) {
-        if (quitKey == 'q') {
-            exit(1);
-        }
+    while (1) {
         printCleaning();
         printEasyMap();
         printMove();
-        //printf("%d\n", i);
+
+        if (score == 1) {
+            break;
+        }
     }
 }
 
@@ -237,6 +253,7 @@ void printMove() {
     */
    int looping = 0;
    char keyValue = ' ';
+   printf(" >>> ");
    scanf("%c", &keyValue);
 
    switch(keyValue) {
@@ -252,8 +269,25 @@ void printMove() {
         case 's':
             ++move_y;
             break;
-   }     
+        case 'q':
+            exit(1);
+            break;
+        default:
+            keyValue = 'x';
+            break;
+   }
+     
 }    
 
+void printHowto() {
+    printf("Move :\n");
+    printf("\t\t\'W\' <== UP\n");
+    printf("\t\'A\' <== LEFT\t\t\'D\' <== RIGHT \n");
+    printf("\t\t\'S\' <== DOWN \n\n");
+    //break;
+}
 
+void escapeGame() {
+    exit(1);
+}
 
