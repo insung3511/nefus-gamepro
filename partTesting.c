@@ -168,22 +168,22 @@ void printEasyMap() {
     int random = 0;
     int previousValue = 0;
     
-    for (int x = 0; x < 10; x++) {
-        for (int y = 0; y < 10; y++) {
-            random = easyMap[x][y];
-            previousValue = easyMap[x][y];
+    for (int x = 0; x < 20; x++) {
+        for (int y = 0; y < 20; y++) {
+            random = normalMap[x][y];
+            previousValue = normalMap[x][y];
             
-            if (easyMap[move_y][move_x] == 0) {
+            if (normalMap[move_y][move_x] == 0) {
                 crash();
                 exit(1);
             }
             
-            if (easyMap[move_x][move_y] == 2) {
+            if (normalMap[move_x][move_y] == 2) {
                 ending();
             }
             
             if (x == move_y && y == move_x) {
-                easyMap[x][y] = 3;
+                normalMap[x][y] = 3;
             }
             
             switch(random) {
@@ -198,7 +198,7 @@ void printEasyMap() {
                     break;
                 case 3:
                     printf(" @");
-                    easyMap[move_y][move_x] = 1;
+                    normalMap[move_y][move_x] = 1;
                     break;
             }
         }   printf("\n");
@@ -303,10 +303,44 @@ void printCleaning() {
 }
 
 void mainEasyplay() {
-    for (int i = 0; i >= score; i++) {
-        printCleaning();
-        printEasyMap();
-        printMove();
+    while (1) {
+    printCleaning();
+    printEasyMap();
+    printEasyMap();
+    /*
+     W
+     A       D
+     S
+     */
+    int looping = 0;
+    char keyValue = ' ';
+    printf(" >>> ");
+    scanf("%c", &keyValue);
+    
+    switch(keyValue) {
+        case 'w':
+            --move_y;
+            break;
+        case 'a':
+            --move_x;
+            break;
+        case 'd':
+            ++move_x;
+            break;
+        case 's':
+            ++move_y;
+            break;
+        case 'q':
+            exit(1);
+            break;
+
+        case 'c':
+            printf("move_x >>> ");
+            scanf("%d", &move_x);
+
+            printf("move_y >>> ");
+            scanf("%d", &move_y);
+        }   
     }
 }
 
