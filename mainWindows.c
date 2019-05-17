@@ -75,7 +75,7 @@ int hardMap[30][30] = {
 	{ 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0 },
 	{ 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 },
 	{ 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 2, 0, 1, 0, 0 },
-	{ 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0 },
+	{ 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0 },
 	{ 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0 },
 	{ 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0 },
 	{ 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0 },
@@ -87,7 +87,6 @@ int hardMap[30][30] = {
 void intro();
 void selectGrade();
 void ready();
-void printMap();
 void printMove();
 void printHowto();
 void printCleaning();
@@ -99,6 +98,7 @@ void mainNormalplay();
 void mainHardplay();
 void ending();
 void crash();
+void RemoveCursor();
 
 int main() {
 	intro();
@@ -236,9 +236,9 @@ void printNormalMap() {
 				normalMap[move_y][move_x] = 1;
 				break;
 			}
-		}   printf("\n");
+		}   printf("\n");	
 	}
-	printf(" move_x == %d\tmove_y == %d\n", move_y, move_x);
+	//printf(" move_x == %d\tmove_y == %d\n", move_y, move_x);
 }
 
 
@@ -289,43 +289,53 @@ void printCleaning() {
 }
 
 void mainEasyplay() {
+	//ready('\n');
 	for (int i = 0; i >= score; i++) {
 		printCleaning();
+		RemoveCursor();
+		printEasyMap();
+
+		printCleaning();
+		RemoveCursor();
 		printEasyMap();
 		printMove();
 	}
 }
 
 void mainNormalplay() {
-	while (1) {
+	printNormalMap();
+	for (int i = 0; i >= score; i++) {
+		RemoveCursor();
+	 	printCleaning();
+		RemoveCursor();
+		printNormalMap();
+
 		printCleaning();
+		RemoveCursor();
 		printNormalMap();
 		printMove();
 
-		if (score == 1) {
-			break;
-		}
 	}
 }
 
 void mainHardplay() {
-	ready();
-	while (1) {
+	printHardMap();
+	for (int i = 0; i >= score; i++) {
+		RemoveCursor();
+		//printCleaning();
+		//RemoveCursor();
+		printHardMap();
+
 		printCleaning();
+		RemoveCursor();
 		printHardMap();
 		printMove();
-
-		if (score == 1) {
-			break;
-		}
 	}
 }
 
 void printMove() {
 	int looping = 0;
-	char keyValue = ' ';
-	printf(" >>> ");
-	scanf_s("%c", &keyValue);
+	char keyValue = _getch();
 
 	switch (keyValue) {
 	case 'w':
@@ -335,11 +345,11 @@ void printMove() {
 	case 'a':
 		--move_x;
 		break;
-	
+
 	case 'd':
 		++move_x;
 		break;
-	
+
 	case 's':
 		++move_y;
 		break;
@@ -375,6 +385,13 @@ void ending() {
 	exit(1);
 }
 
-void ready() {
-	_getch();
+void ready(char ch) {
+	ch = _getch();
+}
+
+void RemoveCursor() {
+	for (int i = 0; i < 16; ++i) {
+		COORD pos = { 0, 0 };
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
+	}
 }

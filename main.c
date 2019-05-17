@@ -251,7 +251,6 @@ void printNormalMap() {
             }
         }   printf("\n");
     }
-    printf(" move_x == %d\tmove_y == %d\n", move_y, move_x);
 }
 
 
