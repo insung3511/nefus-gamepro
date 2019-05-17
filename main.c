@@ -294,9 +294,6 @@ void printHardMap() {
     }
 }
 
-//In Mac cannot use Windows.h system("cls");
-//So I decide use too many add new lines
-//Actually this way is not good :(
 void printCleaning() {
     int looping = 0;
     while (1) {
