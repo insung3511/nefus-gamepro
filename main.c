@@ -300,7 +300,7 @@ void mainEasyplay() {
 }
 
 void mainNormalplay() {
-    ready();
+//    ready();
     while (1) {
         printCleaning();
         printNormalMap();
@@ -313,7 +313,7 @@ void mainNormalplay() {
 }
 
 void mainHardplay() {
-    ready();
+  //  ready();
     while (1) {
         printCleaning();
         printHardMap();
@@ -388,6 +388,3 @@ void ending() {
     exit(1);
 }
 
-void ready() {
-    getch();
-}
